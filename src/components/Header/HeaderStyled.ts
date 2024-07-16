@@ -1,12 +1,29 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const HeaderContainer = styled.header`
   ${({ theme }) => css`
-    color: ${theme['gray-300']};
-    font-weight: bold;
-    font-size: 1rem;
-    font-family: sans-serif;
-    text-align: center;
-    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      a {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: ${theme['gray-100']};
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        &:hover {
+          border-bottom: 3px solid ${theme['green-500']};
+        }
+        &.active {
+          color: ${theme['green-500']};
+        }
+      }
+    }
   `}
 `;
