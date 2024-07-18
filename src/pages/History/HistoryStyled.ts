@@ -2,6 +2,9 @@ import styled, { css } from 'styled-components';
 
 const scrollbarWidth = '8px';
 
+const firstChilddWidth = '50%';
+const lastchildWidth = '10.625rem';
+
 export const HistoryContainer = styled.main`
   ${({ theme }) => css`
     flex: 1;
@@ -56,7 +59,7 @@ export const HistoryList = styled.div`
         font-size: 0.875rem;
         line-height: 1.6;
         &:first-child {
-          width: 50%;
+          width: ${firstChilddWidth};
           border-top-left-radius: 8px;
           padding-left: 1.5rem;
         }
@@ -65,10 +68,12 @@ export const HistoryList = styled.div`
           padding-right: 1.5rem;
         }
       }
-        td:table: td nth-child(1) {
-        
+      td:table: td nth-child(1) {
         padding-right: 8px;
       }
+      th:last-child{
+        width: ${lastchildWidth};
+    }
     }
     }
   `}
@@ -80,6 +85,7 @@ export const Tablebody = styled.div`
     max-width: calc(100% - 8px);
     overflow-x: hidden;
     overflow-y: auto;
+    padding-bottom: 1rem;
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -99,11 +105,12 @@ export const Tablebody = styled.div`
       font-size: 0.875rem;
       line-height: 1.6;
       &:first-child {
-        width: 50%;
+        width: ${firstChilddWidth};
         padding-left: 1.5rem;
       }
       &:last-child {
         padding-right: 1.5rem;
+        width: ${lastchildWidth};
       }
     }
   `}
