@@ -112,8 +112,6 @@ export const StepMinutesAmountButton = styled.button`
   border: none;
   cursor: pointer;
   display: flex;
-  color: red;
-  fill: red;
 `;
 
 export const StartCountdownButton = styled.button`
