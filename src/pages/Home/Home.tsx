@@ -3,11 +3,33 @@ import * as Styled from './HomeStyled';
 import { MouseEvent } from 'react';
 import { Minus, Plus } from 'phosphor-react';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as zod from 'zod';
+
+const newCycleFormValidationSchema = zod.object({
+  task: zod.string().min(1, 'Informe a tarefa'),
+  minutesAmount: zod
+    .number()
+    .min(5, 'O ciclo precisa ser de no mínimo 5 minutos.')
+    .max(60, 'O ciclo precisa ser de no máximo 60 minutos.')
+    .or(zod.string()),
+});
+
+type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>;
 
 function Home() {
-  const { register, handleSubmit, watch, setValue, getValues } = useForm();
-  function handleCreateNewCycle(data: unknown) {
+  const { register, handleSubmit, watch, setValue, getValues, reset } =
+    useForm<NewCycleFormData>({
+      resolver: zodResolver(newCycleFormValidationSchema),
+      defaultValues: {
+        task: '',
+        minutesAmount: '',
+      },
+    });
+
+  function handleCreateNewCycle(data: NewCycleFormData) {
     console.log(data);
+    reset();
   }
 
   const task = watch('task');
@@ -20,7 +42,7 @@ function Home() {
     event.preventDefault();
     const minutesAmount = getValues('minutesAmount');
 
-    if (minutesAmount >= 10) {
+    if (typeof minutesAmount === 'number' && minutesAmount >= 10) {
       setValue('minutesAmount', minutesAmount - 5);
     } else {
       setValue('minutesAmount', '');
@@ -35,7 +57,7 @@ function Home() {
       ? getValues('minutesAmount')
       : 0;
 
-    if (minutesAmount < 60) {
+    if (typeof minutesAmount === 'number' && minutesAmount < 60) {
       setValue('minutesAmount', minutesAmount + 5);
     }
   }
