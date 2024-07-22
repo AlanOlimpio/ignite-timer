@@ -5,6 +5,7 @@ function History() {
   return (
     <Styled.HistoryContainer>
       <h1>Meu histórico</h1>
+
       <Styled.HistoryList>
         <table>
           <tbody>

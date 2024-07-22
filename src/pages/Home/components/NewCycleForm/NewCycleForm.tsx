@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form';
 import { Minus, Plus } from 'phosphor-react';
 import * as Styled from './NewCycleFormStyled';
 import { MouseEvent, useContext } from 'react';
-import { CyclesContext } from '../../Home';
+import { CyclesContext } from '../../../../contexts/CyclesContext';
 
 function NewCycleForm() {
   const { activeCycle } = useContext(CyclesContext);
