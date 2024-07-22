@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# ignite timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esse aplicativo foi desenvolvido no curso <a href="https://app.rocketseat.com.br/journey/react-js-2022/overview" target="_blank">ReactJS</a> , foi utilizando React, Vite e TypeScript.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+|Começar tarefa|Interromper tarefa|Histórico tarefas|
+|-------|------|-------|
+|<img src="screencapture-comecar-tarefa.png" alt="Começar tarefaa" width="100%">|<img src="screencapture-interromper-tarefa.png" alt="Interromper tarefa" width="100%">|<img src="screencapture-historico-tarefas.png" alt="Histórico tarefas" width="100%">|
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## 🔨 Funcionalidades do projeto
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Esse aplicativo exibe um timer e um formulário onde é possível adicionar tarefas com tempo de 5 a 60  minutos, onde também pode ser  visto o histórico das tarefas e seus respectivos status.
+
+## ✔️ Técnicas e tecnologias utilizadas
+
+Lista das bibliotecas utilizadas no desenvolvimento:
+
+- `react`
+- `react-dom`
+- `react-hook-form`
+- `vite`
+- `typescrip`
+- `phosphor-react`
+- `date-fns`
+- `date-fns`
+- `phosphor-react`
+- `react-hook-form`
+- `styled-components`
+- `zod`
+- `@hookform/resolvers`
+
+
+## 🛠️ Abrir e rodar o projeto
+
+Dentro da pasta do projeto execute npm i ou yarn para instalar as dependências e npm run dev ou yarn dev para iniciar o projeto.
