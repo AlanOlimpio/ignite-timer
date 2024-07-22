@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { STATUS_COLORS, StatusStyledInterface } from './StatusInterface';
 
 export const StatusWrapper = styled.span<StatusStyledInterface>`
-  ${({ theme, statusColor }) => css`
+  ${({ theme, $statusColor }) => css`
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -13,7 +13,7 @@ export const StatusWrapper = styled.span<StatusStyledInterface>`
       height: 0.5rem;
       min-width: 0.5rem;
       border-radius: 9999px;
-      background: ${theme[STATUS_COLORS[statusColor]]};
+      background: ${theme[STATUS_COLORS[$statusColor]]};
     }
   `}
 `;

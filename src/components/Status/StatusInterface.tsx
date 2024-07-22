@@ -5,7 +5,7 @@ export const STATUS_COLORS = {
 } as const;
 
 export interface StatusStyledInterface {
-  statusColor: keyof typeof STATUS_COLORS;
+  $statusColor: keyof typeof STATUS_COLORS;
 }
 
 export interface StatusInterface extends StatusStyledInterface {

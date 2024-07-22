@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import Status from '../../components/Status';
 import * as Styled from './HistoryStyled';
+import { CyclesContext } from '../../contexts/CyclesContext';
 
 function History() {
+  const { cycles } = useContext(CyclesContext);
+  const cyclesReverse = cycles.slice(0).reverse();
   return (
     <Styled.HistoryContainer>
       <h1>Meu histórico</h1>
-
       <Styled.HistoryList>
         <table>
           <tbody>
@@ -30,46 +33,38 @@ function History() {
                 <Styled.Tablebody>
                   <table>
                     <tbody>
-                      <tr>
-                        <td>Tarefa</td>
-                        <td>20 minutos</td>
-                        <td>Há 2 meses</td>
-                        <td>
-                          <Status statusColor="yellow" label="Em andamento" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Tarefa</td>
-                        <td>20 minutos</td>
-                        <td>Há 2 meses</td>
-                        <td>
-                          <Status statusColor="red" label="Interrompido" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Tarefa</td>
-                        <td>20 minutos</td>
-                        <td>Há 2 meses</td>
-                        <td>
-                          <Status statusColor="green" label="Concluído" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Tarefa</td>
-                        <td>20 minutos</td>
-                        <td>Há 2 meses</td>
-                        <td>
-                          <Status statusColor="red" label="Interrompido" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Tarefa</td>
-                        <td>20 minutos</td>
-                        <td>Há 2 meses</td>
-                        <td>
-                          <Status statusColor="green" label="Concluído" />
-                        </td>
-                      </tr>
+                      {cyclesReverse.map((cycle) => {
+                        return (
+                          <tr key={cycle.id}>
+                            <td>{cycle.task}</td>
+                            <td>{cycle.minutesAmount} minutos</td>
+                            <td>{cycle.startDate.toISOString()}</td>
+                            <td>
+                              {cycle.finishedDate && (
+                                <Status
+                                  $statusColor="green"
+                                  label="Concluído"
+                                />
+                              )}
+
+                              {cycle.interruptedDate && (
+                                <Status
+                                  $statusColor="red"
+                                  label="Interrompido"
+                                />
+                              )}
+
+                              {!cycle.finishedDate &&
+                                !cycle.interruptedDate && (
+                                  <Status
+                                    $statusColor="yellow"
+                                    label="Em andamento"
+                                  />
+                                )}
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </Styled.Tablebody>
